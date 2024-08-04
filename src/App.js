@@ -81,7 +81,9 @@ class App extends Component {
         {name: "Shichiban", writer: "change"}
       ]
     });
-}
+  }
+
+  bookDelete 
 
   render(){
 
@@ -92,6 +94,15 @@ class App extends Component {
       backgroundColor: "black",
       color: "white",
     };
+
+    let booksState = this.state.books; {/*create a array*/}
+
+    // Created a component list 
+    let booksArray = booksState.map(function(book){
+      return(
+        <Book name = {book.name} writer = {book.writer}/>
+      );
+    });
 
     return (
       <div className="App">
@@ -117,6 +128,8 @@ class App extends Component {
         <Book name = {this.state.books[1].name} writer = {this.state.books[1].writer}/>
         <input onChange={this.changeText}></input>
         <Book name = {this.state.books[2].name} writer = {this.state.books[2].writer} change = {this.changeState.bind(this, "nAn")}/> {/* passing function as param */}
+        <h1 >Used component list</h1>
+        {booksArray} {/*use array*/}
       </div>
     );
 
